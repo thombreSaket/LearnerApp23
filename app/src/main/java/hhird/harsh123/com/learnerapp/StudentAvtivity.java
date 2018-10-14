@@ -59,8 +59,6 @@ public class StudentAvtivity extends AppCompatActivity  {
 
 
         qued=(TextView)findViewById(R.id.dque);
-       // prev=(Button)findViewById(R.id.bu_pre);
-      //  next=(Button)findViewById(R.id.bu_nxt);
         sub=(Button)findViewById(R.id.bu_sub);
         opa=(RadioButton)findViewById(R.id.dopa);
         opb=(RadioButton)findViewById(R.id.dopb);
@@ -69,72 +67,16 @@ public class StudentAvtivity extends AppCompatActivity  {
         rdgr=(RadioGroup)findViewById(R.id.radiogrp);
         dispscore=(TextView)findViewById(R.id.scoreview);
         txt_cd=(TextView)findViewById(R.id.cdtxt);
-
-        //subj1 = getIntent().getStringExtra("sub");
-        //title_final=getIntent().getStringExtra("title2");
-       // qno_final=getIntent().getStringExtra("ques_no");
-        //dispscore.setText(score);
-
-
-       /* myqueEn.addValueEventListener(new ValueEventListener() {
-            @Override
-             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
-
-                {
-                 //String data = (String) dataSnapshot1.getKey();
-                //  String q= (String) dataSnapshot1.child("PRACTICE PAPER NO 3").child("1").child("ans").getValue(String.class);
-                   // String title = title_final;
-                 //   qued.setText(q);
-
-                    String data = (String) dataSnapshot1.getKey();
-                    String q= (String) dataSnapshot.child("PRACTICE PAPER NO 3").child("1").child("question").getValue(String.class);
-                    String a=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child("1").child("opta").getValue(String.class);
-                    String b=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child("1").child("optb").getValue(String.class);
-                    String c=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child("1").child("optc").getValue(String.class);
-                    String d=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child("1").child("optd").getValue(String.class);
-                    // String title = title_final;
-                    //Toast.makeText(StudentAvtivity.this, "QUESTION"+qno_final+"ADDED", Toast.LENGTH_SHORT).show();
-                    qued.setText(q);
-                    opa.setText(a);
-                    opb.setText(b);
-                    opc.setText(c);
-                    opd.setText(d);
-
-
-
-                }
-
-              //  for (Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator(); it.hasNext(); ) {
-                //    DataSnapshot dataSnapshot1 = it.next();
-                  //  String data = (String) dataSnapshot1.getKey();
-
-                    //String name = (String) dataSnapshot1.child("question").getValue();
-                    //qued.setText(data);
-
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
-       quefunc(qn);
+        quefunc(qn);
         updattimer();
         startstop();
-       x=5;
+        x=5;
 
        }
 
 
 
     public void check(View view) {
-       // if (x > 0) {
             int radioid = rdgr.getCheckedRadioButtonId();
             selected = findViewById(radioid);
             checkedanswer = selected.getText().toString();
@@ -142,22 +84,13 @@ public class StudentAvtivity extends AppCompatActivity  {
             if (anw.contentEquals(checkedanswer)) {
                 score++;
                 sscore=String.valueOf(score);
-        //    }
-          //  x--;
-        }
+            }
 
-        if(qn==5)
-        {
-            //qued.setText("Score :" + score + "/5");
-            Intent intent = new Intent(this,display_score.class);
+        if(qn==5) {
+            Intent intent = new Intent(this,profileactivity.class);
             intent.putExtra("scr",sscore);
             startActivity(intent);
         }
-      //  else
-        //{
-          //  startActivity(new Intent(this,MainActivity.class));
-            //}
-
     }
 
 
@@ -171,11 +104,6 @@ public class StudentAvtivity extends AppCompatActivity  {
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
 
                 {
-                    //String data = (String) dataSnapshot1.getKey();
-                    //  String q= (String) dataSnapshot1.child("PRACTICE PAPER NO 3").child("1").child("ans").getValue(String.class);
-                    // String title = title_final;
-                    //   qued.setText(q);
-
                     String data=(String)dataSnapshot1.getKey();
                     String q=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("question").getValue(String.class);
                     String a=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("opta").getValue(String.class);
@@ -183,51 +111,22 @@ public class StudentAvtivity extends AppCompatActivity  {
                     String c=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("optc").getValue(String.class);
                     String d=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("optd").getValue(String.class);
                     anw=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("ans").getValue(String.class);
-                    // String title = title_final;
-                    //Toast.makeText(StudentAvtivity.this, "QUESTION"+qno_final+"ADDED", Toast.LENGTH_SHORT).show();
-
                     qued.setText(q);
                     opa.setText(a);
                     opb.setText(b);
                     opc.setText(c);
                     opd.setText(d);
-
-
-
-
                 }
-
-                //  for (Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator(); it.hasNext(); ) {
-                //    DataSnapshot dataSnapshot1 = it.next();
-                //  String data = (String) dataSnapshot1.getKey();
-
-                //String name = (String) dataSnapshot1.child("question").getValue();
-                //qued.setText(data);
-
-
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-
-
         });
-
-
-
-
     }
 
 
     public void bunxtclick(View view) {
-
-
-        if(rdgr.getCheckedRadioButtonId()==-1)
-        {
+        if(rdgr.getCheckedRadioButtonId()==-1) {
             Toast.makeText(StudentAvtivity.this,"SELECT AN OPTION",Toast.LENGTH_SHORT).show();
         }
         else {
