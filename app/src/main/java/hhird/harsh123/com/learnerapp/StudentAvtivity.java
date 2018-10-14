@@ -12,6 +12,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,12 +32,14 @@ public class StudentAvtivity extends AppCompatActivity  {
        private RadioButton opb;
        private  RadioButton opc;
        private RadioButton opd;
+       public FirebaseAuth fbauth;
        private FirebaseDatabase queDatabase=FirebaseDatabase.getInstance();
        public DatabaseReference myque=queDatabase.getReference();
        public DatabaseReference myqueEn=myque.child("English");
        public DatabaseReference myqueMa=myque.child("Mathematics");
        public DatabaseReference myqueAp=myque.child("Aptitude");
        public String subj1;
+       public String user;
        public String title_final;
        public String qno_final;
        public String qno;
@@ -57,7 +61,7 @@ public class StudentAvtivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_avtivity);
 
-
+        subj1 = getIntent().getStringExtra("sub");
         qued=(TextView)findViewById(R.id.dque);
         sub=(Button)findViewById(R.id.bu_sub);
         opa=(RadioButton)findViewById(R.id.dopa);
@@ -87,8 +91,12 @@ public class StudentAvtivity extends AppCompatActivity  {
             }
 
         if(qn==5) {
-            Intent intent = new Intent(this,profileactivity.class);
-            intent.putExtra("scr",sscore);
+            FirebaseUser user1=fbauth.getCurrentUser();
+                  user=user1.getEmail();
+
+                Intent intent = new Intent(this,disp_score0.class);
+                intent.putExtra("scr",sscore);
+                intent.putExtra("subject",subj1);
             startActivity(intent);
         }
     }
@@ -97,7 +105,7 @@ public class StudentAvtivity extends AppCompatActivity  {
     public void quefunc(final int qint){
 
            qno=String.valueOf(qint);
-        myqueEn.addValueEventListener(new ValueEventListener() {
+        myque.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -105,12 +113,12 @@ public class StudentAvtivity extends AppCompatActivity  {
 
                 {
                     String data=(String)dataSnapshot1.getKey();
-                    String q=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("question").getValue(String.class);
-                    String a=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("opta").getValue(String.class);
-                    String b=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("optb").getValue(String.class);
-                    String c=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("optc").getValue(String.class);
-                    String d=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("optd").getValue(String.class);
-                    anw=(String)dataSnapshot.child("PRACTICE PAPER NO 3").child(qno).child("ans").getValue(String.class);
+                    String q=(String)dataSnapshot.child(subj1).child(qno).child("question").getValue(String.class);
+                    String a=(String)dataSnapshot.child(subj1).child(qno).child("opta").getValue(String.class);
+                    String b=(String)dataSnapshot.child(subj1).child(qno).child("optb").getValue(String.class);
+                    String c=(String)dataSnapshot.child(subj1).child(qno).child("optc").getValue(String.class);
+                    String d=(String)dataSnapshot.child(subj1).child(qno).child("optd").getValue(String.class);
+                    anw=(String)dataSnapshot.child(subj1).child(qno).child("ans").getValue(String.class);
                     qued.setText(q);
                     opa.setText(a);
                     opb.setText(b);

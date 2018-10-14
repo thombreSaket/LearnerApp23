@@ -12,18 +12,18 @@ import android.widget.Toast;
 public class teacheraskpassword extends AppCompatActivity {
 
 
-    private TextView t1 = (TextView)findViewById(R.id.enterpass);
-    private EditText pass = (EditText)findViewById(R.id.passtech);
-    private Button submit = (Button)findViewById(R.id.enter);
-    public String s1=null;
+    private TextView t1 ;
+    private EditText pass;
+    private Button submit;
+    private String s1="abcd";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacheraskpassword);
-
-
-
+        t1= (TextView)findViewById(R.id.enterpass);
+        pass = (EditText)findViewById(R.id.passtech);
+        submit = (Button)findViewById(R.id.enter);
 
     }
 

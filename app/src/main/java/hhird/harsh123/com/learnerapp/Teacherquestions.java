@@ -15,7 +15,6 @@ public class    Teacherquestions extends AppCompatActivity {
     public TextView qunum123;
     public int x,y;
     public String noofques;
-    public String test_title1;
     private EditText question;
     private EditText optA;
     private EditText optB;
@@ -23,7 +22,6 @@ public class    Teacherquestions extends AppCompatActivity {
     private EditText optD;
     private EditText ans;
     private EditText Qnum;
-    private TextView tit_view;
     public  String subj;
     public String Q_Num;
     DatabaseReference databaseQuestions;
@@ -35,7 +33,6 @@ public class    Teacherquestions extends AppCompatActivity {
 
         //Read from intent : -
         subj = getIntent().getStringExtra("sub");
-        test_title1=getIntent().getStringExtra("title1");
         noofques=getIntent().getStringExtra("no_ofQues");
         x=Integer.parseInt(noofques);
         y=1;
@@ -49,15 +46,13 @@ public class    Teacherquestions extends AppCompatActivity {
         optC = (EditText)findViewById(R.id.optC);
         optD = (EditText)findViewById(R.id.optD);
         ans = (EditText)findViewById(R.id.answer);
-       tit_view=(TextView)findViewById(R.id.title_view);
-        tit_view.setText(test_title1);
         Q_Num = String.valueOf(y);
 
         qunum123.setText(Q_Num);
     }
 
     public void submitquestion(View view  ){
-        if(y<x) {
+        if(y<=x) {
             Q_Num = String.valueOf(y);
             String Question = question.getText().toString().trim();
             String OPTION_A = optA.getText().toString().trim();
@@ -66,9 +61,8 @@ public class    Teacherquestions extends AppCompatActivity {
             String OPTION_D = optD.getText().toString().trim();
             String Ans = ans.getText().toString().trim();
 
-            Questions questions = new Questions(Q_Num, test_title1, Question, OPTION_A, OPTION_B, OPTION_C, OPTION_D, Ans);
-            // title  quetitle =new title(Title_test,Q_Num);
-            databaseQuestions.child(test_title1).child(Q_Num).setValue(questions);
+            Questions questions = new Questions(Q_Num, Question, OPTION_A, OPTION_B, OPTION_C, OPTION_D, Ans);
+            databaseQuestions.child(Q_Num).setValue(questions);
             qunum123.setText(Q_Num);
             y++;
             question.setText(null);
@@ -80,25 +74,9 @@ public class    Teacherquestions extends AppCompatActivity {
         }
         else
         {
-            Intent intent = new Intent(this, test_title.class);
+            Intent intent = new Intent(this, sub_screen_for_teacher_uploads.class);
             startActivity(intent);
         }
-
-       // Intent intent = new Intent(this, StudentAvtivity.class);
-        //intent.putExtra("sub",subj);
-        //intent.putExtra("title2",test_title1 );
-        //intent.putExtra("ques_no",Q_Num);
-        //startActivity(intent);
-
-
-       // startActivity(new Intent(this,StudentAvtivity.class));
-
-      //  Intent i1 = getIntent();
-       // String S1 = i1.getStringExtra("sub");
-        //disp.setText(subj);
-
-
-
     }
 
 

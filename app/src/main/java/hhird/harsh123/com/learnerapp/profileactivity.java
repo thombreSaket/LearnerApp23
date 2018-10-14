@@ -50,7 +50,7 @@ public class profileactivity extends AppCompatActivity {
                         @Override
                         public void onBoomButtonClick(int index) {
                             // When the boom-button corresponding this builder is clicked.
-                            startActivity(new Intent(getApplicationContext(),StudentAvtivity.class));
+                            startActivity(new Intent(getApplicationContext(),sub_screen_for_student.class));
                         }
 
 
@@ -71,7 +71,7 @@ public class profileactivity extends AppCompatActivity {
                     public void onBoomButtonClick(int index) {
                         // When the boom-button corresponding this builder is clicked.
                       //  Toast.makeText(profileactivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),StudentAvtivity.class));
+                        startActivity(new Intent(getApplicationContext(),sub_screen_for_student.class));
                     }
 
 
