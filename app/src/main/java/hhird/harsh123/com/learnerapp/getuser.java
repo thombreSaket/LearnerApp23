@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -15,20 +16,14 @@ public class getuser extends AppCompatActivity {
 
 
 
-    private EditText fname;
+        private EditText fname;
         private EditText lname;
         private EditText mno;
         private Spinner  myspinner;
         private TextView md;
-    public String id;
+        public String id;
 
         DatabaseReference databaseUser;
-
-
-
-
-
-
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

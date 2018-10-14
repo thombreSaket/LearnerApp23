@@ -118,27 +118,6 @@ public class signupactivity extends AppCompatActivity implements View.OnClickLis
         final  String mailid=email_signup.getText().toString().trim();
 
 
-        //  if (TextUtils.isEmpty(name)) {
-        ///    Toast.makeText(this, "PLEASE ENTER A NAME", Toast.LENGTH_SHORT).show();
-        //    return;
-       // }
-       // if (TextUtils.isEmpty(namel)) {
-         //   Toast.makeText(this, "PLEASE ENTER A LAST NAME", Toast.LENGTH_SHORT).show();
-         //   return;
-        //}
-        //if (TextUtils.isEmpty(birth)) {
-          //  Toast.makeText(this, "PLEASE ENTER DATE OF BIRTH", Toast.LENGTH_SHORT).show();
-          //  return;
-       // }
-       // //if (TextUtils.isEmpty(uprofile)) {
-         //   Toast.makeText(this, "PLEASE SELECT APPROPRIATE PROFILE", Toast.LENGTH_SHORT).show();
-         //   return;
-      //  }
-       // if (TextUtils.isEmpty(con_passcode)) {
-         //   Toast.makeText(this, "PLEASE ENTER PASSCODE AGAIN", Toast.LENGTH_SHORT).show();
-         //   return;
-        //}
-
 
         progressDialog.setMessage("REGISTERING USER.....");
 
@@ -161,15 +140,6 @@ public class signupactivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         });
-
-
-        //String id = databaseuser.push().getKey();
-
-       // user user1 = new user(id, name, namel, birth, uprofile, email, passcode, con_passcode);
-
-        //databaseuser.child(id).setValue(user1);
-
-
     }
 }
 

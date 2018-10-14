@@ -9,14 +9,16 @@ import android.widget.Button;
 
 public class TeacherActivity extends AppCompatActivity {
 
-    private Button upques = (Button)findViewById(R.id.enter_questions);
-   // private Button leaderboard = (Button)findViewById(R.id.scrbutton);
+    private Button upques;
+    private Button leaderboard;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
+        upques = (Button)findViewById(R.id.enter_questions);
+        leaderboard=(Button)findViewById(R.id.showleaderboard);
     }
 
     public void showleaderboard(View view){

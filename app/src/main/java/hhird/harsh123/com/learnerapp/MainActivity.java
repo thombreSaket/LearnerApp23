@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void buclick123(View view) {
 
 
-       startActivity(new Intent(getApplicationContext(), sub_screen_for_teacher_uploads.class));
+       startActivity(new Intent(getApplicationContext(), teacheraskpassword.class));
 
         //disp.setText(p2);
         //disp2.setText(no_phn);

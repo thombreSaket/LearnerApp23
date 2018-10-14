@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hhird.harsh123.com.learnerapp">
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -36,7 +37,9 @@
         <activity android:name=".TeacherActivity" />
         <activity android:name=".teacheraskpassword" />
         <activity android:name=".learningpage" />
-        <activity android:name=".videoactivity"></activity>
+        <activity android:name=".videoactivity" />
+        <activity android:name=".disp_score0" />
+        <activity android:name=".sub_screen_for_student"></activity>
     </application>
 
 </manifest>

@@ -28,7 +28,6 @@ public class pract_title extends AppCompatActivity {
         subbu=(Button)findViewById(R.id.button_sub);
         no_of_ques=(EditText)findViewById(R.id.no_of_quesprac);
 
-        prac_spin=(Spinner)findViewById(R.id.pracspin);
 
         ArrayAdapter<String> myadaptor2 = new ArrayAdapter<String>(pract_title.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pract));
@@ -42,7 +41,6 @@ public class pract_title extends AppCompatActivity {
         String practti = prac_spin.getSelectedItem().toString().trim();
         Intent intent = new Intent(this, Teacherquestions.class);
         intent.putExtra("sub",subject);
-        intent.putExtra("title1",practti);
         intent.putExtra("no_ofQues",nooofquestions);
         startActivity(intent);
 
