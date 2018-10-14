@@ -24,8 +24,8 @@ public class profileactivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private TextView welcome;
     private TextView show_email;
-    private Button logout;
-    private Button prac;
+    private Button but;
+    private Button buv;
     private Button test;
     private Button leaderboard;
     private BoomMenuButton bmb;
@@ -33,7 +33,8 @@ public class profileactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profileactivity);
-
+         but=(Button)findViewById(R.id.bu_theory);
+         buv=(Button)findViewById(R.id.bu_videos);
         bmb = (BoomMenuButton) findViewById(R.id.bmb);
         bmb.setButtonEnum(ButtonEnum.Ham);
         bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_4);
@@ -69,7 +70,8 @@ public class profileactivity extends AppCompatActivity {
                     @Override
                     public void onBoomButtonClick(int index) {
                         // When the boom-button corresponding this builder is clicked.
-                        Toast.makeText(profileactivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(profileactivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),StudentAvtivity.class));
                     }
 
 
@@ -134,6 +136,14 @@ public class profileactivity extends AppCompatActivity {
        show_email=(TextView)findViewById(R.id.tv_email);
        // logout= (Button) findViewById(R.id.bu_logout);
         show_email.setText(user.getEmail());
+    }
+
+    public void gototheory(View view) {
+        startActivity(new Intent(getApplicationContext(),learningpage.class));
+    }
+
+    public void gotovideos(View view) {
+startActivity(new Intent(getApplicationContext(),videoactivity.class));
     }
 
   /*  public void bu_click(View view) {
