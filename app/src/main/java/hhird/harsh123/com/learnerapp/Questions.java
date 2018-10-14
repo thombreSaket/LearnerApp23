@@ -8,12 +8,10 @@ public class Questions {
     String optc;
     String optd;
     String ans;
-    String tits;
     String qnum;
 
-    public Questions(String qnum,String tits,String question, String opta, String optb, String optc, String optd, String ans) {
+    public Questions(String qnum,String question, String opta, String optb, String optc, String optd, String ans) {
        this.qnum=qnum;
-        this.tits=tits;
         this.question = question;
         this.opta = opta;
         this.optb = optb;
@@ -26,9 +24,6 @@ public class Questions {
         return qnum;
     }
 
-    public String getTits() {
-        return tits;
-    }
 
     public String getQuestion() {
         return question;
