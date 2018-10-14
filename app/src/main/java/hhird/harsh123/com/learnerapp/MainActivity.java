@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login = (Button) findViewById(R.id.bu_login);
         gotosignup = (TextView) findViewById(R.id.tv_login);
         // gotoQuestions = (Button)findViewById(R.id.BuQues);
-        phn_no = (EditText) findViewById(R.id.phno1);
+       // phn_no = (EditText) findViewById(R.id.phno1);
 
         progressDialog = new ProgressDialog(this);
 
         login.setOnClickListener(this);
         gotosignup.setOnClickListener(this);
 
-        no_phn = phn_no.getText().toString().trim();
+        //no_phn = phn_no.getText().toString().trim();
         disp = (TextView) findViewById(R.id.textView235);
          disp2=(TextView)findViewById(R.id.textView45678);
       //   disp2.setText(no_phn);
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 for (DataSnapshot dataSnapshot2 : dataSnapshot.getChildren()) {
                     //String p= (String) dataSnapshot.child(no_phn).getValue(String.class);
-                    no_phn = phn_no.getText().toString().trim();
-                    p2 = (String) dataSnapshot2.child(no_phn).child("userprofile").getValue(String.class);
+                 //   no_phn = phn_no.getText().toString().trim();
+                 //   p2 = (String) dataSnapshot2.child(no_phn).child("userprofile").getValue(String.class);
 
                 }
 
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == gotosignup) {
             finish();
             startActivity(new Intent(getApplicationContext(), signupactivity.class));
-                no_phn = phn_no.getText().toString().trim();
+              //  no_phn = phn_no.getText().toString().trim();
         }
     }
 

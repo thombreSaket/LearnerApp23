@@ -156,7 +156,7 @@ public class signupactivity extends AppCompatActivity implements View.OnClickLis
 
                     User user= new User(name,namel,mob_no,uprofile,mailid);
                     databaseUser.child(mob_no).setValue(user);
-                    startActivity(new Intent(getApplicationContext(), sub_screen_for_teacher_uploads.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                 }
             }
